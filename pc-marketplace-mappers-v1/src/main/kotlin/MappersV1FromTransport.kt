@@ -1,11 +1,12 @@
-import exceptions.UnknownAdProduct
-import exceptions.UnknownRequestClass
+package ru.gorbunovas.mappers
+
+import ru.gorbunovas.mappers.exceptions.UnknownAdProduct
+import ru.gorbunovas.mappers.exceptions.UnknownRequestClass
 import ru.gorbunovas.pcmarketplace.api.v1.models.*
 import ru.gorbunovas.pcmarketplace.common.*
 import ru.gorbunovas.pcmarketplace.common.models.*
 import ru.gorbunovas.pcmarketplace.common.models.product.*
 import ru.gorbunovas.pcmarketplace.common.stubs.PcMkplStubs
-
 
 fun PcMkplContext.fromTransport(request: IRequest) = when(request){
     is AdCreateRequest -> fromTransport(request)

@@ -1,4 +1,6 @@
-import exceptions.UnknownMkplCommand
+package ru.gorbunovas.mappers
+
+import ru.gorbunovas.mappers.exceptions.UnknownMkplCommand
 import ru.gorbunovas.pcmarketplace.api.v1.models.*
 import ru.gorbunovas.pcmarketplace.common.*
 import ru.gorbunovas.pcmarketplace.common.models.*

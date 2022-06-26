@@ -1,4 +1,4 @@
-package exceptions
+package ru.gorbunovas.mappers.exceptions
 
 import ru.gorbunovas.pcmarketplace.common.models.PcMkplCommand
 import ru.gorbunovas.pcmarketplace.common.models.PcMkplComment

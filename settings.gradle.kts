@@ -29,3 +29,7 @@ pluginManagement {
 include("pc-marketplace-common")
 include("pc-marketplace-api-v1")
 include("pc-marketplace-mappers-v1")
+include("pc-marketplace-app-ktor")
+include("pc-marketplace-services")
+include("pc-marketplace-stubs")
+include("pc-marketplace-stubs")
