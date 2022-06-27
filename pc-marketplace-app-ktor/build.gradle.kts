@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.util.suffixIfNot
 
 val ktorVersion: String by project
 val logbackVersion: String by project
+val kotlinVersion: String by project
 
 group =rootProject.group
 version =rootProject.version
@@ -17,7 +18,8 @@ plugins {
 }
 
 application {
-    mainClass.set("io.ktor.server.netty.EngineMain")
+//    mainClass.set("io.ktor.server.netty.EngineMain")
+    mainClass.set(".ApplicationKt")
 }
 
 dependencies {
@@ -58,5 +60,11 @@ dependencies {
 
     testImplementation(kotlin("test-junit"))
     testImplementation(ktor("test-host")) // "io.ktor:ktor-server-test-host:$ktorVersion"
+    testImplementation(ktor("content-negotiation", prefix = "client-"))
+//    testImplementation(ktor("websockets", prefix = "client-"))
+    implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
+//    implementation("io.ktor:ktor-client-jackson:$ktorVersion")
+//    testImplementation("io.ktor:ktor-server-test-host-jvm:2.0.2")
+//    testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlin_version")
 }
 

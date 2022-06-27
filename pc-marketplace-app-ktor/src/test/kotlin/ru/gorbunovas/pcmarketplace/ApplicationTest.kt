@@ -1,4 +1,4 @@
-package ru.gorbunovas.pcmarketplace
+package ru.gorbunovas.pcmarketplace.ru.gorbunovas.pcmarketplace
 
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
