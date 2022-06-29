@@ -1,4 +1,4 @@
-package ru.gorbunovas.pcmarketplace
+package ru.gorbunovas.pcmarketplace.common
 
 import kotlinx.datetime.Instant
 
