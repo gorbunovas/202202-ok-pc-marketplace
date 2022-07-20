@@ -1,6 +1,6 @@
 package ru.gorbunovas.pcmarketplace.common.models.product
 
-class PcMkplAdProductPcRam (
+data class PcMkplAdProductPcRam (
     var typeRam: TypeRam = TypeRam.NONE,
     var clock: Int = 0,
     var model: String = ""

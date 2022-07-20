@@ -4,4 +4,5 @@ enum class PcMkplState {
     NONE,
     RUNNING,
     FAILING,
+    FINISHING
 }

@@ -10,5 +10,6 @@ enum class PcMkplStubs {
     BAD_VISIBILITY,
     CANNOT_DELETE,
     BAD_SEARCH_STRING,
-    BAD_COMMENT
+    BAD_PRODUCT,
+    DB_ERROR
 }

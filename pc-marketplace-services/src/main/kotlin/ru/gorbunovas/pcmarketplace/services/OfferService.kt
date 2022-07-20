@@ -3,7 +3,7 @@ package ru.gorbunovas.pcmarketplace.services;
 import ru.gorbunovas.pcmarketplace.common.*
 import ru.gorbunovas.pcmarketplace.common.models.PcMkplError
 import ru.gorbunovas.pcmarketplace.common.stubs.PcMkplStubs
-import ru.gorbunovas.pcmarketplace.stubs.ru.gorbunovas.pcmarketplace.stubs.PcStubs
+import ru.gorbunovas.pcmarketplace.stubs.PcStubs
 
 class OfferService {
 

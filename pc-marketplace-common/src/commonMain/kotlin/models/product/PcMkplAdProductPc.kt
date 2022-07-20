@@ -8,7 +8,21 @@ data class PcMkplAdProductPc (
     var hdd: String = "",
     var cpu: PcMkplAdProductPcCpu = PcMkplAdProductPcCpu.NONE,
     var ram: PcMkplAdProductPcRam = PcMkplAdProductPcRam.NONE
-): IPcMkplAdProduct
+): IPcMkplAdProduct {
+    override fun deepCopy() = PcMkplAdProductPc(
+        type = this.type,
+        price = this.price,
+        formFactor = this.formFactor,
+        motherboard = this.motherboard,
+        hdd = this.hdd,
+        cpu = this.cpu.copy(),
+        ram = this.ram.copy()
+    )
+
+    companion object {
+        val NONE = PcMkplAdProductNone
+    }
+}
 
 enum class PcMkplAdProductPcFormfactor {
     FULL_TOWER,

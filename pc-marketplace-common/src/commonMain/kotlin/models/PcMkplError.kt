@@ -6,4 +6,10 @@ data class PcMkplError(
     val field: String = "",
     val message: String = "",
     val exception: Throwable? = null,
+    val level: PcMkplErrorLevels = PcMkplErrorLevels.ERROR,
 )
+
+enum class PcMkplErrorLevels {
+    ERROR,
+    INFO,
+}
