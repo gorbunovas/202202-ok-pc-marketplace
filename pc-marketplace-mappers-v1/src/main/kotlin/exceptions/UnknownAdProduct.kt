@@ -1,4 +1,4 @@
-package exceptions
+package ru.gorbunovas.mappers.exceptions
 
 import ru.gorbunovas.pcmarketplace.api.v1.models.IAdProduct
 

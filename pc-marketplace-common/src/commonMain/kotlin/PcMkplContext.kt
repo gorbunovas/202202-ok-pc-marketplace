@@ -3,7 +3,6 @@ package ru.gorbunovas.pcmarketplace.common
 import kotlinx.datetime.*
 import ru.gorbunovas.pcmarketplace.common.models.*
 import ru.gorbunovas.pcmarketplace.common.stubs.PcMkplStubs
-import java.net.CacheRequest
 
 data class PcMkplContext(
     var command: PcMkplCommand = PcMkplCommand.NONE,

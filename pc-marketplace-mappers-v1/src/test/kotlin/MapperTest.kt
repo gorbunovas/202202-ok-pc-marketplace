@@ -1,3 +1,5 @@
+package ru.gorbunovas.mappers
+
 import org.junit.Test
 import ru.gorbunovas.pcmarketplace.api.v1.models.*
 import ru.gorbunovas.pcmarketplace.common.PcMkplContext
