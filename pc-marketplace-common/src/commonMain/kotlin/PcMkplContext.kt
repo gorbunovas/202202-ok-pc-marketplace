@@ -18,6 +18,12 @@ data class PcMkplContext(
     var adFilterRequest: PcMkplAdFilter = PcMkplAdFilter(),
     var commentRequest: PcMkplComment = PcMkplComment(),
 
+    var adValidating: PcMkplAd = PcMkplAd(),
+    var adFilterValidating: PcMkplAdFilter = PcMkplAdFilter(),
+
+    var adValidated: PcMkplAd = PcMkplAd(),
+    var adFilterValidated: PcMkplAdFilter = PcMkplAdFilter(),
+
     var adResponse: PcMkplAd = PcMkplAd(),
     var adsResponse: MutableList<PcMkplAd> = mutableListOf(),
 )

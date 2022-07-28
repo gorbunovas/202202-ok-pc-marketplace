@@ -1,10 +1,10 @@
-package ru.gorbunovas.pcmarketplace.stubs.ru.gorbunovas.pcmarketplace.stubs
+package ru.gorbunovas.pcmarketplace.stubs
 
 //import PcMkplAdStubsPc.AD_DEMAND_PC1
 import ru.gorbunovas.pcmarketplace.common.models.PcMkplAd
 import ru.gorbunovas.pcmarketplace.common.models.PcMkplAdId
 import ru.gorbunovas.pcmarketplace.common.models.PcMkplDealSide
-import ru.gorbunovas.pcmarketplace.stubs.ru.gorbunovas.pcmarketplace.stubs.PcMkplAdStubsPc.AD_DEMAND_PC1
+import ru.gorbunovas.pcmarketplace.stubs.PcMkplAdStubsPc.AD_DEMAND_PC1
 
 object PcMkplStub {
     fun get(): PcMkplAd = AD_DEMAND_PC1.copy()

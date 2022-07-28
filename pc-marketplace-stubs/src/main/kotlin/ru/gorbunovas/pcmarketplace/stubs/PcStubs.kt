@@ -1,4 +1,4 @@
-package ru.gorbunovas.pcmarketplace.stubs.ru.gorbunovas.pcmarketplace.stubs
+package ru.gorbunovas.pcmarketplace.stubs
 
 import ru.gorbunovas.pcmarketplace.common.models.*
 import ru.gorbunovas.pcmarketplace.common.models.product.*

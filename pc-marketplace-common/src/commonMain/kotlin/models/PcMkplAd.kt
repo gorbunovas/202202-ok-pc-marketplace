@@ -7,9 +7,21 @@ data class PcMkplAd(
     var title: String = "",
     var description: String = "",
     var ownerId: PcMkplUserId = PcMkplUserId.NONE,
-    val adType: PcMkplDealSide = PcMkplDealSide.NONE,
+    var adType: PcMkplDealSide = PcMkplDealSide.NONE,
     var visibility: PcMkplVisibility = PcMkplVisibility.NONE,
     var product: IPcMkplAdProduct = IPcMkplAdProduct.NONE,
     val permissionsClient: MutableSet<PcMkplAdPermissionClient> = mutableSetOf(),
     var comments: MutableList<PcMkplComment> = mutableListOf()
-)
+) {
+    fun deepCopy(
+    ) = PcMkplAd(
+        id = this@PcMkplAd.id,
+        title = this@PcMkplAd.title,
+        description = this@PcMkplAd.description,
+        ownerId = this@PcMkplAd.ownerId,
+        adType = this@PcMkplAd.adType,
+        visibility = this@PcMkplAd.visibility,
+        product = this@PcMkplAd.product.deepCopy(),
+        permissionsClient = this@PcMkplAd.permissionsClient.toMutableSet()
+    )
+}
