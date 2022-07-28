@@ -58,14 +58,13 @@ fun Application.module() {
     }
 
     val adService = AdService()
-    val offerService = OfferService()
 
     routing {
         get("/") {
             call.respondText("Hello, world!")
         }
 
-        v1(adService, offerService)
+        v1(adService)
 
         static("static") {
             resources("static")

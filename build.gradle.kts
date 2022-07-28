@@ -16,4 +16,14 @@ allprojects {
 subprojects {
     group = rootProject.group
     version = rootProject.version
+
+    tasks.forEach {
+        println("TASK: $it ${it::class.simpleName}")
+    }
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+        kotlinOptions {
+            freeCompilerArgs = listOf("-Xjsr305=strict", "-opt-in=kotlin.RequiresOptIn")
+            jvmTarget = "17"
+        }
+    }
 }
