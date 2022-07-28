@@ -8,6 +8,7 @@ version =rootProject.version
 dependencies {
     implementation(project(":pc-marketplace-common"))
     implementation(project(":pc-marketplace-stubs"))
+    implementation(project(":pc-marketplace-biz"))
     implementation(kotlin("stdlib-common"))
 }
 
