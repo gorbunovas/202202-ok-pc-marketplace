@@ -22,13 +22,8 @@ fun Route.pcAd(PcAdServices: AdService) {
         post("search") {
             call.searchAd(PcAdServices)
         }
-    }
-}
-
-fun Route.pcOffer(offerService: OfferService) {
-    route("ad") {
         post("offers") {
-            call.offersAd(offerService)
+            call.offersAd(PcAdServices)
         }
     }
 }
