@@ -276,8 +276,8 @@ components:
           type: string
           description: Свойство для дескриминатора, описывающее тип товара
         price:
-          type: integer
-          format: int32
+          type: number
+          format: double
           description: Цена в рублях
       discriminator:
         propertyName: productType

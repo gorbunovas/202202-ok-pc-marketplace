@@ -25,7 +25,7 @@ class MapperTest {
                 adType = DealSide.DEMAND,
                 visibility = AdVisibility.PUBLIC,
                 product = AdProductPC(
-                    price = 10000,
+                    price = 10000.0,
                     hdd = "ssd 1Tb",
                     motherboard = "s360",
                     formfactor = AdProductPC.Formfactor.MINI_TOWER,
@@ -53,7 +53,7 @@ class MapperTest {
         assertEquals(12, product.cpu.core)
         assertEquals(PcMkplAdProductPcFormfactor.MINI_TOWER, product.formFactor)
         assertEquals("server", product.type)
-        assertEquals(10000, product.price)
+        assertEquals(10000.0, product.price)
     }
 
     @Test
@@ -67,7 +67,7 @@ class MapperTest {
                 adType = PcMkplDealSide.DEMAND,
                 visibility = PcMkplVisibility.VISIBLE_PUBLIC,
                 product = PcMkplAdProductPc(
-                    price = 10000,
+                    price = 10000.0,
                     hdd = "ssd 1Tb",
                     motherboard = "s360",
                     formFactor = PcMkplAdProductPcFormfactor.FULL_TOWER,
@@ -103,7 +103,7 @@ class MapperTest {
         assertEquals("i10", product.cpu?.model)
         assertEquals(8, product.cpu?.core)
         assertEquals("server", product.productType)
-        assertEquals(10000, product.price)
+        assertEquals(10000.0, product.price)
         assertEquals(AdProductPC.Formfactor.FULL_TOWER, product.formfactor)
     }
 }

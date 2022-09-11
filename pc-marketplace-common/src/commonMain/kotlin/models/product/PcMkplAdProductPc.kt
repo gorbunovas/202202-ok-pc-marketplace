@@ -2,7 +2,7 @@ package ru.gorbunovas.pcmarketplace.common.models.product
 
 data class PcMkplAdProductPc (
     var type: String = "",
-    var price: Int = 0,
+    var price: Double = 0.0,
     var formFactor: PcMkplAdProductPcFormfactor = PcMkplAdProductPcFormfactor.NONE,
     var motherboard: String = "",
     var hdd: String = "",

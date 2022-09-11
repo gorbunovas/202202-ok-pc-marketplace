@@ -15,7 +15,7 @@ class SerializationResponseTest {
                 cpu = AdProductPCcpu(core = 8, clock = 2200),
                 ram = AdProductPCram(AdProductPCram.Type.DDR6, clock = 1333),
                 productType = "WorkStation",
-                price = 100000
+                price = 100000.0
             )
         )
     )
@@ -46,7 +46,7 @@ class SerializationResponseTest {
         assertEquals("Title", objectTest.ad?.title)
         assertEquals("Description", objectTest.ad?.description)
         val product = objectTest.ad?.product as AdProductPC
-        assertEquals(100000, product.price)
+        assertEquals(100000.0, product.price)
     }
 
 }

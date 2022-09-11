@@ -91,7 +91,7 @@ private fun IPcMkplAdProduct.toTransport(): IAdProduct? = when(this) {
 
 private fun PcMkplAdProductPc.toTransport() = AdProductPC(
     productType = this.type ?: "",
-    price = this.price ?: 0,
+    price = this.price ?: 0.0,
     motherboard = this.motherboard ?: "",
     hdd = this.hdd ?: "",
     cpu = this.cpu.toTransport(),

@@ -2,6 +2,7 @@ package ru.gorbunovas.pcmarketplace.common
 
 import kotlinx.datetime.*
 import ru.gorbunovas.pcmarketplace.common.models.*
+import ru.gorbunovas.pcmarketplace.common.repo.IAdRepository
 import ru.gorbunovas.pcmarketplace.common.stubs.PcMkplStubs
 
 data class PcMkplContext(
@@ -26,4 +27,11 @@ data class PcMkplContext(
 
     var adResponse: PcMkplAd = PcMkplAd(),
     var adsResponse: MutableList<PcMkplAd> = mutableListOf(),
+
+    var settings: PcMkplSettings = PcMkplSettings(),
+    var adRepo: IAdRepository = IAdRepository.NONE,
+    var adRepoRead: PcMkplAd = PcMkplAd(),
+    var adRepoPrepare: PcMkplAd = PcMkplAd(),
+    var adRepoDone: PcMkplAd = PcMkplAd(),
+    var adsRepoDone: MutableList<PcMkplAd> = mutableListOf(),
 )

@@ -22,5 +22,6 @@ dependencies {
     implementation(kotlin("test-common"))
     implementation(kotlin("test-annotations-common"))
     testImplementation(kotlin("test-junit"))
+    implementation(project(":pc-marketplace-inmemory"))
     testApi("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
 }

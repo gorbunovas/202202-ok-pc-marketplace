@@ -16,7 +16,7 @@ object PcMkplAdStubsPc {
             adType = PcMkplDealSide.DEMAND,
             visibility = PcMkplVisibility.VISIBLE_PUBLIC,
             product = PcMkplAdProductPc(
-                price = 50000,
+                price = 50000.0,
                 hdd = "ssd 1Tb",
                 motherboard = "s360",
                 formFactor = PcMkplAdProductPcFormfactor.FULL_TOWER,

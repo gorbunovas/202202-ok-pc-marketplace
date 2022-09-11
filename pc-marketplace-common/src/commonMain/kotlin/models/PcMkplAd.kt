@@ -10,6 +10,7 @@ data class PcMkplAd(
     var adType: PcMkplDealSide = PcMkplDealSide.NONE,
     var visibility: PcMkplVisibility = PcMkplVisibility.NONE,
     var product: IPcMkplAdProduct = IPcMkplAdProduct.NONE,
+    var lock: PcMkplAdLock = PcMkplAdLock.NONE,
     val permissionsClient: MutableSet<PcMkplAdPermissionClient> = mutableSetOf(),
     var comments: MutableList<PcMkplComment> = mutableListOf()
 ) {
@@ -21,6 +22,7 @@ data class PcMkplAd(
         ownerId = this@PcMkplAd.ownerId,
         adType = this@PcMkplAd.adType,
         visibility = this@PcMkplAd.visibility,
+        lock = this@PcMkplAd.lock,
         product = this@PcMkplAd.product.deepCopy(),
         permissionsClient = this@PcMkplAd.permissionsClient.toMutableSet()
     )

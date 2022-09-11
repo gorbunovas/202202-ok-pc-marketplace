@@ -147,7 +147,7 @@ private fun IAdProduct?.fromTransport(): IPcMkplAdProduct = when(val prod = this
 
 private fun AdProductPC.fromTransport() = PcMkplAdProductPc(
     type = this.productType ?: "",
-    price = this.price ?: 0,
+    price = (this.price ?: 0.0) as Double,
     motherboard = this.motherboard ?: "",
     hdd = this.hdd ?: "",
     cpu = this.cpu.fromTransport(),

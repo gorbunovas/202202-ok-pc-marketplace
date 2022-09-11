@@ -25,7 +25,7 @@ fun validationProductCorrect(command: PcMkplCommand, processor: PcMkplAdProcesso
             adType = PcMkplDealSide.DEMAND,
             visibility = PcMkplVisibility.VISIBLE_PUBLIC,
             product = PcMkplAdProductPc(
-                price = 10000,
+                price = 10000.0,
                 hdd = "ssd 1Tb",
                 motherboard = "s360",
                 formFactor = PcMkplAdProductPcFormfactor.FULL_TOWER,
@@ -54,7 +54,7 @@ fun validationProductRamEmpty(command: PcMkplCommand, processor: PcMkplAdProcess
             adType = PcMkplDealSide.DEMAND,
             visibility = PcMkplVisibility.VISIBLE_PUBLIC,
             product = PcMkplAdProductPc(
-                price = 10000,
+                price = 10000.0,
                 hdd = "ssd 1Tb",
                 motherboard = "s360",
                 formFactor = PcMkplAdProductPcFormfactor.FULL_TOWER,
@@ -83,7 +83,7 @@ fun validationProductMotherboardEmpty(command: PcMkplCommand, processor: PcMkplA
             adType = PcMkplDealSide.DEMAND,
             visibility = PcMkplVisibility.VISIBLE_PUBLIC,
             product = PcMkplAdProductPc(
-                price = 10000,
+                price = 10000.0,
                 hdd = "ssd 1Tb",
                 //motherboard = "s360",
                 formFactor = PcMkplAdProductPcFormfactor.FULL_TOWER,
@@ -115,7 +115,7 @@ fun validationProductCpuEmpty(command: PcMkplCommand, processor: PcMkplAdProcess
             adType = PcMkplDealSide.DEMAND,
             visibility = PcMkplVisibility.VISIBLE_PUBLIC,
             product = PcMkplAdProductPc(
-                price = 10000,
+                price = 10000.0,
                 hdd = "ssd 1Tb",
                 motherboard = "s360",
                 formFactor = PcMkplAdProductPcFormfactor.FULL_TOWER,

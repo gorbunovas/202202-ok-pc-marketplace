@@ -4,4 +4,5 @@ data class PcMkplAdFilter(
     var searchString: String = "",
     var ownerId: PcMkplUserId = PcMkplUserId.NONE,
     var dealSide: PcMkplDealSide = PcMkplDealSide.NONE,
+    var searchTypes: MutableSet<PcMkplSearchTypes> = mutableSetOf(),
 )

@@ -25,7 +25,7 @@ class AdCreateStubTest {
     val dealSide = PcMkplDealSide.DEMAND
     val visibility = PcMkplVisibility.VISIBLE_PUBLIC
     val product = PcMkplAdProductPc(
-        price = 10000,
+        price = 10000.0,
         hdd = "ssd 1Tb",
         motherboard = "s360",
         formFactor = PcMkplAdProductPcFormfactor.FULL_TOWER,

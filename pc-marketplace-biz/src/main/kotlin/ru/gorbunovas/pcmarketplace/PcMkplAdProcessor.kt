@@ -3,6 +3,7 @@ package ru.gorbunovas.pcmarketplace
 import com.crowdproj.kotlin.cor.handlers.chain
 import com.crowdproj.kotlin.cor.handlers.worker
 import com.crowdproj.kotlin.cor.rootChain
+import ru.gorbunovas.pcmarketplace.biz.repo.*
 import ru.gorbunovas.pcmarketplace.common.PcMkplContext
 import ru.gorbunovas.pcmarketplace.common.models.*
 import ru.gorbunovas.pcmarketplace.general.initStatus
@@ -10,12 +11,10 @@ import ru.gorbunovas.pcmarketplace.general.operation
 import ru.gorbunovas.pcmarketplace.general.*
 import ru.gorbunovas.pcmarketplace.stubs.*
 import ru.gorbunovas.pcmarketplace.stubs.stubs
-import ru.gorbunovas.pcmarketplace.validation.validateNotEmptyProductMotherboard
-import ru.gorbunovas.pcmarketplace.validation.validateNotEmptyProductCpu
-import ru.gorbunovas.pcmarketplace.validation.validateNotEmptyProductRam
+import ru.gorbunovas.pcmarketplace.validation.*
 
-class PcMkplAdProcessor {
-    suspend fun exec(ctx: PcMkplContext) = BuzinessChain.exec(ctx)
+class PcMkplAdProcessor(private val settings: PcMkplSettings = PcMkplSettings()) {
+    suspend fun exec(ctx: PcMkplContext) = BuzinessChain.exec(ctx.apply { settings = this@PcMkplAdProcessor.settings })
 
     companion object {
         private val BuzinessChain = rootChain<PcMkplContext> {
@@ -46,6 +45,14 @@ class PcMkplAdProcessor {
                     validateNotEmptyProductMotherboard("Проверка на наличие модели материской платы")
                     finishAdValidation("Успешное завершение процедуры валидации")
                 }
+
+                chain {
+                    title = "Логика сохранения"
+                    repoPrepareCreate("Подготовка объекта для сохранения")
+                    repoCreate("Создание объявления в БД")
+                }
+
+                prepareResult("Подготовка ответа")
             }
             operation("Получить объявление", PcMkplCommand.READ) {
                 stubs("Обработка стабов") {
@@ -63,6 +70,17 @@ class PcMkplAdProcessor {
 
                     finishAdValidation("Успешное завершение процедуры валидации")
                 }
+                chain {
+                    title = "Логика чтения"
+                    repoRead("Чтение объявления из БД")
+                    worker {
+                        title = "Подготовка ответа для Read"
+                        on { state == PcMkplState.RUNNING }
+                        handle { adRepoDone = adRepoRead }
+                    }
+                }
+                //
+                prepareResult("Подготовка ответа")
             }
             operation("Изменить объявление", PcMkplCommand.UPDATE) {
                 stubs("Обработка стабов") {
@@ -81,6 +99,8 @@ class PcMkplAdProcessor {
                     worker("Очистка описания") { adValidating.description = adValidating.description.trim() }
                     validateIdNotEmpty("Проверка на непустой id")
                     validateIdProperFormat("Проверка формата id")
+                    validateLockNotEmpty("Проверка на непустой lock")
+                    validateLockProperFormat("Проверка формата lock")
                     validateTitleNotEmpty("Проверка на непустой заголовок")
                     validateTitleHasContent("Проверка на наличие содержания в заголовке")
                     validateDescriptionNotEmpty("Проверка на непустое описание")
@@ -91,6 +111,18 @@ class PcMkplAdProcessor {
 
                     finishAdValidation("Успешное завершение процедуры валидации")
                 }
+
+                chain {
+                    title = "Логика изменения"
+                    repoRead("Чтение объявления из БД")
+                    //
+                    repoCheckReadLock("Проверяем блокировку")
+                    repoPrepareUpdate("Подготовка объекта для обновления")
+                    repoUpdate("Обновление объявления в БД")
+                }
+
+                prepareResult("Подготовка ответа")
+
             }
             operation("Удалить объявление", PcMkplCommand.DELETE) {
                 stubs("Обработка стабов") {
@@ -105,9 +137,21 @@ class PcMkplAdProcessor {
                     worker("Очистка id") { adValidating.id = PcMkplAdId(adValidating.id.asString().trim()) }
                     validateIdNotEmpty("Проверка на непустой id")
                     validateIdProperFormat("Проверка формата id")
+                    validateLockNotEmpty("Проверка на непустой lock")
+                    validateLockProperFormat("Проверка формата lock")
 
                     finishAdValidation("Успешное завершение процедуры валидации")
                 }
+
+                chain {
+                    title = "Логика сохранения"
+                    repoRead("Чтение объявления из БД")
+                    //
+                    repoCheckReadLock("Проверяем блокировку")
+                    repoPrepareDelete("Подготовка объекта для удаления")
+                    repoDelete("Удаление объявления из БД")
+                }
+                prepareResult("Подготовка ответа")
             }
             operation("Поиск объявлений", PcMkplCommand.SEARCH) {
                 stubs("Обработка стабов") {
@@ -122,6 +166,9 @@ class PcMkplAdProcessor {
 
                     finishAdFilterValidation("Успешное завершение процедуры валидации")
                 }
+                //
+                repoSearch("Поиск объявления в БД по фильтру")
+                prepareResult("Подготовка ответа")
             }
             operation("Поиск подходящих предложений для объявления", PcMkplCommand.OFFERS) {
                 stubs("Обработка стабов") {
@@ -140,6 +187,14 @@ class PcMkplAdProcessor {
 
                     finishAdValidation("Успешное завершение процедуры валидации")
                 }
+                //
+                chain {
+                    title = "Логика сохранения"
+                    repoRead("Чтение объявления из БД")
+                    repoPrepareOffers("Подготовка данных для поиска предложений")
+                    repoOffers("Поиск предложений для объявления в БД")
+                }
+                prepareResult("Подготовка ответа")
             }
         }.build()
     }

@@ -48,7 +48,7 @@ class StubTest {
 
         val response = client.post("/v1/ad/create") {
             val prod = AdProductPC("Office",
-                50000,
+                50000.0,
                 AdProductPC.Formfactor.MINI_TOWER,
                 "Asus",
                 "500Gb",
@@ -95,14 +95,14 @@ class StubTest {
         }
         val responseObj = response.body<AdReadResponse>()
         assertEquals(200, response.status.value)
-        assertEquals("0987654321", responseObj.ad?.id)
+        assertEquals("88005553535", responseObj.ad?.id)
     }
 
     @Test
     fun update() = testApplication {
         val client = myClient()
         val prod = AdProductPC("Office",
-            50000,
+            50000.0,
             AdProductPC.Formfactor.MINI_TOWER,
             "Asus",
             "500Gb",
@@ -153,7 +153,7 @@ class StubTest {
         }
         val responseObj = response.body<AdDeleteResponse>()
         assertEquals(200, response.status.value)
-        assertEquals("0987654321", responseObj.ad?.id)
+        assertEquals("88005553535", responseObj.ad?.id)
     }
 
     @Test
@@ -174,7 +174,7 @@ class StubTest {
         }
         val responseObj = response.body<AdSearchResponse>()
         assertEquals(200, response.status.value)
-        assertEquals("title", responseObj.ads?.first()?.title)
+        assertEquals(" d-88005553535-01", responseObj.ads?.first()?.title)
     }
 
     @Test
@@ -199,6 +199,6 @@ class StubTest {
         val responseObj = response.body<AdOffersResponse>()
         assertEquals(200, response.status.value)
         assertEquals("1234567890", responseObj.requestId)
-        assertEquals("0987654321", responseObj.offers?.first()?.id)
+        assertEquals("s-88005553535-01", responseObj.offers?.first()?.id)
     }
 }
